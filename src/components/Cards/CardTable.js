@@ -19,10 +19,10 @@ export default function CardTable({ color }) {
 
   const [newUser, setNewUser] = useState({
     firstname:"",
+    lastname:"",
     email:"",
-   password:"",
-    id:"",
-    imageUser:"",
+    password:"",
+    user_image:"",
   
 });
 
@@ -39,8 +39,8 @@ const handlechange= (e)=>{
 
   const getUsers = useCallback(async () => {
     await getAllUsers().then((res => {
-      console.log(res.data);
-      setUsers(res.data);
+      console.log(res.data.usersList);
+      setUsers(res.data.usersList);
     }))
 
   }, []);
@@ -71,9 +71,10 @@ const handlechange= (e)=>{
 
     try{
       formData.append("firstName",newUser.firstname)
+      formData.append("lastName",newUser.lastname)
       formData.append("email",newUser.email)
       formData.append("password",newUser.password)
-      formData.append("imageUser",image,`${newUser.use}.png`)
+      formData.append("user_image",image,`${newUser.use}.png`)
       await addUserWithImage(formData);
       getUsers();
 
@@ -160,6 +161,17 @@ catch(error) {
                     onChange={handlechange}
                   
                   />
+
+
+                  <input
+                    type="text"
+                    name='lastname'
+                    placeholder="lastname"
+                    value={newUser.lastname}
+                    className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
+                    onChange={handlechange}
+                  
+                  />
                              <input
                     type="text"
                     name="email"
@@ -176,14 +188,7 @@ catch(error) {
                     className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                        onChange={handlechange}
                   />
-                             <input
-                    type="number"
-                    name='id'
-                    placeholder="id"
-                    value={newUser.id}
-                    className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
-                       onChange={handlechange}
-                  />
+                       
                    <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
@@ -191,7 +196,7 @@ catch(error) {
                     choisir un fichier 
                   </label>
 
-                   <input type="file" name='image_user' accept="image/*"
+                   <input type="file" name='user_image' accept="image/*"
                       onChange={handleFile}
                        />
 
@@ -248,6 +253,17 @@ catch(error) {
                 >
                   firstName
                 </th>
+
+                 <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
+                  }
+                >
+                  lastname
+                </th>
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
@@ -279,16 +295,7 @@ catch(error) {
                 >
                   Password
                 </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                  }
-                >
-                  Id
-                </th>
+               
                 
 
                
@@ -297,7 +304,7 @@ catch(error) {
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.id}>
+                <tr key={user._id}>
 
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                     <img
@@ -315,11 +322,13 @@ catch(error) {
 
                     </span>
                   </th>
+                                    <td className="px-6 py-4 text-xs">{user.lastname}</td>
+
                   
                   <td className="px-6 py-4 text-xs">{user.email}</td>
 
                   <td className="px-6 py-4 text-xs">{user.password}</td>
-                  <td className="px-6 py-4 text-xs">{user.id}</td>
+                
                   <td>
                      <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-2 ease-linear transition-all duration-150"
               type="button"

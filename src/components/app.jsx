@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const FetchTodo = () => {
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    fetch('http://localhost:5001/')
       .then(response => response.json())
       .then(json => console.log(json));
       
