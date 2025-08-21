@@ -20,7 +20,7 @@ export async function addUserWithImage(formData) {
     });
 }
 export async function updateUser(id,userData) {
-    return await axios.put(`${apiUrl}/users/${id}`, userData);
+    return await axios.put(`${apiUrl}/users/updateUser/68a4beb83c6699204355f88c`, userData);
 }
 
 export async function loginUser(userData){

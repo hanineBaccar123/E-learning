@@ -22,6 +22,7 @@ export default function CardTable({ color }) {
     lastname:"",
     email:"",
     password:"",
+    role:"student",
     user_image:"",
   
 });
@@ -74,7 +75,8 @@ const handlechange= (e)=>{
       formData.append("lastName",newUser.lastname)
       formData.append("email",newUser.email)
       formData.append("password",newUser.password)
-      formData.append("user_image",image,`${newUser.use}.png`)
+      formData.append("role",newUser.role)
+      formData.append("user_image",image,`${newUser.firstname}.png`)
       await addUserWithImage(formData);
       getUsers();
 
@@ -196,14 +198,14 @@ catch(error) {
                     choisir un fichier 
                   </label>
 
-                   <input type="file" name='user_image' accept="image/*"
+                   <input type="file" name='user_image' 
                       onChange={handleFile}
                        />
 
                         <button className="mr-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-2 ease-linear transition-all duration-150"
                          type="button"
                          onClick={()=>{
-                          handleAddNewUser(newUser)
+                      
                           handleAddNewUserWithImage(newUser)
                         
                         }}
@@ -308,7 +310,7 @@ catch(error) {
 
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                     <img
-                      src={require("assets/img/bootstrap.jpg").default}
+                      src={`http://localhost:5001/images/${user.user_image}`}
                       className="h-12 w-12 bg-white rounded-full border"
                       alt="..."
                     ></img>
@@ -322,12 +324,14 @@ catch(error) {
 
                     </span>
                   </th>
-                                    <td className="px-6 py-4 text-xs">{user.lastname}</td>
+                   <td className="px-6 py-4 text-xs">{user.lastname}</td>
 
                   
                   <td className="px-6 py-4 text-xs">{user.email}</td>
 
                   <td className="px-6 py-4 text-xs">{user.password}</td>
+
+                  
                 
                   <td>
                      <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-2 ease-linear transition-all duration-150"
