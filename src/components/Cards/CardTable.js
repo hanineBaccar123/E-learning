@@ -99,7 +99,7 @@ const handlechange= (e)=>{
 
   const handelUpdateUser = async (newUser)=>{
     try{
-      await updateUser(newUser.id,newUser)
+      await updateUser(newUser._id,newUser)
       getUsers()
       setIsModalOpen(false)
       console.log("user updated")
@@ -215,7 +215,6 @@ catch(error) {
 
               <button className="ml-50 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
                       onClick={()=>{handelUpdateUser(newUser)
-               
 
               }}>
                 update user
@@ -347,7 +346,7 @@ catch(error) {
               type="button"
               onClick={()=>{setIsModalOpen(true)
                 setNewUser(user)
-                handelUpdateUser(newUser)
+                handelUpdateUser(newUser.id)
                 
               }}>
                 modifier
