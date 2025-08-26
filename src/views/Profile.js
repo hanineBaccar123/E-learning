@@ -31,7 +31,7 @@ export default function Profile() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                   "Welcome hanine"
+                   "Welcome "
 
 
                   </h1>

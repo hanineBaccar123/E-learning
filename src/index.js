@@ -23,6 +23,8 @@ import mode from "views/mode";
 import modifierProfile from "views/modifierprofil";
 
 
+
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
@@ -38,7 +40,11 @@ ReactDOM.render(
       <Route path="/profile" exact component={Profile} />
       <Route path="/cours" exact component={cours} />
       <Route path="/mode" exact component={mode} />
+
       <Route path="/modifierprofil" exact component={modifierProfile} />
+
+      
+
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}
       <Redirect from="*" to="/" />

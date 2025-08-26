@@ -27,7 +27,7 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     
                   >
-                    UserId
+                    firstname
                   </label>
                   <input
                     type="text"
@@ -42,7 +42,7 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                   
                   >
-                    Id
+                   lastname
                   </label>
                   <input
                     type="email"
@@ -57,30 +57,16 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     
                   >
-                   Title
+                   password
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    
-                  >
-                    Completed
-                  </label>
-                  <input
-                    type="text"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    
-                  />
-                </div>
-              </div>
+              
             </div>
 
             <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -134,7 +120,7 @@ export default function CardSettings() {
                   
                   </label>
                   <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                add
+                Modifier 
               </button>
 
                  
