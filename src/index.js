@@ -21,6 +21,7 @@ import hanine from "views/hanine";
 import cours from "views/cours";
 import mode from "views/mode";
 import modifierProfile from "views/modifierprofil";
+import carts from "views/carts";
 
 
 
@@ -41,7 +42,9 @@ ReactDOM.render(
       <Route path="/cours" exact component={cours} />
       <Route path="/mode" exact component={mode} />
 
+
       <Route path="/modifierprofil" exact component={modifierProfile} />
+      <Route path="/carts" exact component={carts} />
 
       
 
