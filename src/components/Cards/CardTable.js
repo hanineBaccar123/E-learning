@@ -47,16 +47,16 @@ const handlechange= (e)=>{
   }, []);
   useEffect(() => { getUsers() }, [getUsers]);
 
-  const handleAddNewUser = async (newUser)=>{
-    try{
-      await addUser(newUser)
-      getUsers()
-      console.log("user added")
+  //const handleAddNewUser = async (newUser)=>{
+    //try{
+     // await addUser(newUser)
+      //getUsers()
+     // console.log("user added")
 
-    }catch (error){
-      console.log(error)
-    }
-  };
+    //}catch (error){
+      //console.log(error)
+    //}
+  //}//;
 
   const [image , setImage]= useState("")
 
