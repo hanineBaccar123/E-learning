@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBook, FaChalkboardTeacher, FaGlobe } from 'react-icons/fa';
 import { GiAchievement } from 'react-icons/gi';
 
@@ -11,7 +11,6 @@ const CourseCard = ({ title, description, level, duration, language, icon }) => 
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-blue-400 flex flex-col justify-between">
-      {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-2xl text-blue-600">
@@ -23,14 +22,10 @@ const CourseCard = ({ title, description, level, duration, language, icon }) => 
           {level}
         </span>
       </div>
-
-      {/* Content */}
       <div className="mb-4 flex-1">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
         <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
-
-      {/* Footer */}
       <div className="flex items-center justify-between text-sm text-gray-500 mt-4">
         <span className="flex items-center">
           <FaBook className="w-4 h-4 mr-1" />
@@ -43,6 +38,8 @@ const CourseCard = ({ title, description, level, duration, language, icon }) => 
 };
 
 const CoursesPage = () => {
+  const [search, setSearch] = useState('');
+
   const courses = [
     {
       title: "Conversation de Base",
@@ -84,8 +81,13 @@ const CoursesPage = () => {
       language: "Français",
       icon: <span>🇫🇷</span>
     }
-    // ...ajoute le reste des cours ici
   ];
+
+  // Filtrage des cours selon la recherche
+  const filteredCourses = courses.filter(course =>
+    course.title.toLowerCase().includes(search.toLowerCase()) ||
+    course.language.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-6">
@@ -93,8 +95,20 @@ const CoursesPage = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
           Nos Cours de Langues
         </h1>
+
+        {/* Barre de recherche */}
+        <div className="mb-8">
+          <input
+            type="text"
+            placeholder="Rechercher un cours ou une langue..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {courses.map((course, index) => (
+          {filteredCourses.map((course, index) => (
             <CourseCard key={index} {...course} />
           ))}
         </div>

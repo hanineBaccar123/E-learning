@@ -210,32 +210,39 @@ Inscrivez-vous pour parcourir les cours gratuitement.
                     target="_blank"
                   >
                     <div className="bg-red-600 shadow-lg rounded-lg text-center p-8">
+
+                       <Link to="/carts">
                       
                       <p className="text-lg text-white mt-4 font-semibold">
                         English
                       </p>
+                      </Link>
                     </div>
                   </a>
+                 
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index"
+                    href=""
                     target="_blank"
                   >
                     <div className="bg-lightBlue-500 shadow-lg rounded-lg text-center p-8 mt-8">
-                      
+                      <Link to="/carts">
                       <p className="text-lg text-white mt-4 font-semibold">
                         Spanish
                       </p>
+                      </Link>
                     </div>
+                    
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index"
+                    href=""
                     target="_blank"
                   >
                     <div className="bg-blueGray-700 shadow-lg rounded-lg text-center p-8 mt-8">
-                     
+                     <Link to="/carts">
                       <p className="text-lg text-white mt-4 font-semibold">
                         French
                       </p>
+                      </Link>
                     </div>
                   </a>
                 </div>
@@ -245,21 +252,23 @@ Inscrivez-vous pour parcourir les cours gratuitement.
                     target="_blank"
                   >
                     <div className="bg-yellow-500 shadow-lg rounded-lg text-center p-8">
-                    
+                    <Link to="/carts">
                       <p className="text-lg text-white mt-4 font-semibold">
                         German
                       </p>
+                      </Link>
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index"
+                    href=""
                     target="_blank"
                   >
                     <div className="bg-red-700 shadow-lg rounded-lg text-center p-8 mt-8">
-                      
+                      <Link to="/carts">
                       <p className="text-lg text-white mt-4 font-semibold">
                         Japanese
                       </p>
+                      </Link>
                     </div>
                   </a>
                   <a
@@ -267,10 +276,13 @@ Inscrivez-vous pour parcourir les cours gratuitement.
                     target="_blank"
                   >
                     <div className="bg-emerald-500 shadow-lg rounded-lg text-center p-8 mt-8">
-                     
+                      
+                       <Link to="/carts">
+
                       <p className="text-lg text-white mt-4 font-semibold">
                         Korean
                       </p>
+                      </Link>
                     </div>
                   </a>
                 </div>
