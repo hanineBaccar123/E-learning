@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 // components
 
-import { getAllUsers,updateUser ,addUser,addUserWithImage,deleteUser} from "Service/ApiUser";
+import { getAllUsers,updateUser ,addUserWithImage,deleteUser} from "Service/ApiUser";
 
 
 
