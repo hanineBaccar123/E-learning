@@ -75,10 +75,12 @@ export default function mode() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
+                    <Link to="/carts">
                     <button className="text-lightBlue-500 bg-transparent border border-solid border-lightBlue-500 hover:bg-lightBlue-500 hover:text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-  Programmer un cours d'essai
+  Consulter cours
 </button>
-                    <h6 className="text-xl font-semibold">Start session</h6>
+</Link>
+                    <h6 className="text-xl font-semibold">nos cours</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                      
                     </p>
