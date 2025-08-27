@@ -101,14 +101,7 @@ const PagesDropdown = () => {
         >
           Landing
         </Link>
-        <Link
-          to="/profile"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-        >
-          Profile
-        </Link>
+        
         <Link
           to="/hanine"
           className={

@@ -22,7 +22,7 @@ export default function CardTable({ color }) {
     lastname:"",
     email:"",
     password:"",
-    role:"student",
+    role:"",
     user_image:"",
   
 });
@@ -164,7 +164,7 @@ catch(error) {
                   
                   />
 
-
+                   
                   <input
                     type="text"
                     name='lastname'
@@ -190,6 +190,18 @@ catch(error) {
                     className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                        onChange={handlechange}
                   />
+
+
+
+                            <input
+                    type="text"
+                    name="role"
+                    placeholder="choisir role"
+                    value={newUser.role}
+                    className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
+                       onChange={handlechange}
+                  />
+               
                        
                    <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -275,17 +287,7 @@ catch(error) {
                 >
                   Email
                 </th>
-               
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
-                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
-                  }
-                >
-                  
-                </th>
+              
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
@@ -295,6 +297,17 @@ catch(error) {
                   }
                 >
                   Password
+                </th>
+
+                 <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
+                  }
+                >
+                  Role
                 </th>
                
                 
@@ -330,18 +343,21 @@ catch(error) {
 
                   <td className="px-6 py-4 text-xs">{user.password}</td>
 
+
+                   <td className="px-6 py-4 text-xs">{user.role}</td>
+
+
                   
                 
                   <td>
                      <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-2 ease-linear transition-all duration-150"
               type="button"
               onClick={()=>{
-                handelDelete(user.id)
+                handelDelete(user._id)
               }}>
                 delete
               </button>
-
-
+              
                    <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-2 ease-linear transition-all duration-150"
               type="button"
               onClick={()=>{setIsModalOpen(true)

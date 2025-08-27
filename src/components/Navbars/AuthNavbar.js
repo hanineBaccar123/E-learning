@@ -66,7 +66,7 @@ export default function Navbar(props) {
               
             >
               
-              Mode d'échange linguistiques
+              students
 
                
             </Link>
@@ -142,7 +142,7 @@ export default function Navbar(props) {
                   <Link to="/auth/login">
          <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          style={{ backgroundColor: "#706CFF" }}>
+          style={{ backgroundColor: "#131340ff" }}>
   Se Connecter 
 </button>
 </Link>
@@ -152,7 +152,7 @@ export default function Navbar(props) {
                 
       <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
        type="button"
-        style={{ backgroundColor: "#706CFF" }}>
+        style={{ backgroundColor: "#131340ff" }}>
   S'inscrire
 </button>
 </Link>

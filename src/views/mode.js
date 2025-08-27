@@ -29,7 +29,7 @@ export default function mode() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                   "Un espace d’échange pour pratiquer toutes les langues, selon vos besoins et vos envies."
+                   "Un espace Pour Nos Etudiants."
                    
 
 
@@ -93,9 +93,15 @@ export default function mode() {
                       <i className="fas fa-retweet"></i>
                     </div>
 
-                    <button className="text-lightBlue-500 bg-transparent border border-solid border-lightBlue-500 hover:bg-lightBlue-500 hover:text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+
+                     <Link to="/hanine">
+                    <button
+                    
+                     className="text-lightBlue-500 bg-transparent border border-solid border-lightBlue-500 hover:bg-lightBlue-500 hover:text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                      
   Programmer un cours d'essai avec tuteur
 </button>
+</Link>
                     <h6 className="text-xl font-semibold">Trouver des tuteurs</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                     
@@ -110,10 +116,11 @@ export default function mode() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-
+<Link to="/test">
                     <button className="text-lightBlue-500 bg-transparent border border-solid border-lightBlue-500 hover:bg-lightBlue-500 hover:text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
   Commenter
 </button>
+</Link>
                     <h6 className="text-xl font-semibold">Commenter et mettez des avis</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
                       <i className="fas fa-heart"></i>

@@ -22,6 +22,9 @@ import cours from "views/cours";
 import mode from "views/mode";
 import modifierProfile from "views/modifierprofil";
 import carts from "views/carts";
+import test from "views/test";
+
+
 
 
 
@@ -45,6 +48,12 @@ ReactDOM.render(
 
       <Route path="/modifierprofil" exact component={modifierProfile} />
       <Route path="/carts" exact component={carts} />
+        <Route path="/test" exact component={test} />
+      
+
+                      
+
+
 
       
 
