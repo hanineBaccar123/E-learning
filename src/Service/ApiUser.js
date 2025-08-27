@@ -22,8 +22,12 @@ export async function addUserWithImage(formData) {
 export async function updateUser(id,userData) {
     return await axios.put(`${apiUrl}/users/updateUser/${id}`, userData);
 }  
-export async function loginUser(userData){
-    return await axios.post(`${apiUrl}/login`,userData);
+export async function login(userData){
+    return await axios.post(`${apiUrl}/users/login`,userData);
+}
+
+export async function register(userData){
+    return await axios.post(`${apiUrl}/users/register`,userData);
 }
 
 

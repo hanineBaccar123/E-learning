@@ -23,6 +23,7 @@ import mode from "views/mode";
 import modifierProfile from "views/modifierprofil";
 import carts from "views/carts";
 import test from "views/test";
+import welcometeacher from "views/welcometeacher"
 
 
 
@@ -49,6 +50,8 @@ ReactDOM.render(
       <Route path="/modifierprofil" exact component={modifierProfile} />
       <Route path="/carts" exact component={carts} />
         <Route path="/test" exact component={test} />
+                <Route path="/welcometeacher" exact component={welcometeacher} />
+
       
 
                       

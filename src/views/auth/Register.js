@@ -6,6 +6,7 @@ import { addUser } from "Service/ApiUser";
 
 
 
+
 export default function Register() {
   const history = useHistory()
 
@@ -84,11 +85,30 @@ export default function Register() {
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Name
+                      firstname
                     </label>
                     <input
                       type="text"
                       name="firstname"
+                      onChange={handelChange}
+
+
+
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Name"
+                    />
+                  </div>
+
+                   <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      lastname
+                    </label>
+                    <input
+                      type="text"
+                      name="lastname"
                       onChange={handelChange}
 
 
@@ -127,6 +147,26 @@ export default function Register() {
                        onChange={handelChange}
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                    />
+                  </div>
+
+
+                   <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Role
+                    </label>
+                    <input
+                      type="text"
+                      name="role"
+                      onChange={handelChange}
+
+
+
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="Name"
                     />
                   </div>
 

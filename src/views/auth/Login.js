@@ -1,7 +1,7 @@
 import React from "react";
 import { Link , useHistory} from "react-router-dom";
 import { useState } from "react";
-import { loginUser } from "Service/ApiUser";
+import { login } from "Service/ApiUser";
 import { NotificationContainer,NotificationManager } from "react-notifications";
 
 
@@ -17,16 +17,21 @@ export default function Login() {
 
   const handleLogin = async (uese)=>{
     try{
-      const res = await loginUser(user);
+      const res = await login(user);
       localStorage.setItem("role",res.data.user.role)
       localStorage.setItem("user",res.data.user)
       localStorage.setItem("token",res.data.token)
       console.log(res);
-      if(res.data.user.roles ==="client"){
+      if(res.data.user.role ==="student"){
         history.push("/landing");
       }
-         if(res.data.user.roles ==="admin"){
-        history.push("/admin");
+         if(res.data.user.role ==="teacher"){
+        history.push("/welcometeacher");
+        //winodws.location.replace('')
+      }
+
+       if(res.data.user.role ==="admin"){
+        history.push("/admin/dashboard");
         //winodws.location.replace('')
       }
 
@@ -34,7 +39,8 @@ export default function Login() {
     } catch (error) {
       console.log(error);
       //notif
-      showNotification('error',error.response.data.message)
+      showNotification("error", "Login failed", error.response?.data?.message || "Something went wrong")
+
     }
   };
 
