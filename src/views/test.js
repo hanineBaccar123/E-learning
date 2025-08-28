@@ -11,9 +11,10 @@ const ELearningForms = () => {
   const [hoveredStar, setHoveredStar] = useState(0);
 
   // State pour stocker les données
-  const [commentaires, setCommentaires] = useState([]);
+  const [commentaires, setCommentaires] = useState([]); 
   const [cours, setCours] = useState([]);
   const [loadingComments, setLoadingComments] = useState(false);
+  const [commentErrors, setCommentErrors] = useState({});
 
   // State pour le formulaire de commentaire (étudiant)
   const [commentForm, setCommentForm] = useState({
@@ -32,6 +33,7 @@ const ELearningForms = () => {
     duration: '',
     prix: ''
   });
+  const [courseErrors, setCourseErrors] = useState({});
 
   // Fonction pour récupérer les commentaires
   const fetchCommentaires = useCallback(async () => {
@@ -65,9 +67,12 @@ const ELearningForms = () => {
   // Fonction pour ajouter un commentaire
   const handleAddNewComment = async () => {
     try {
-      if (!commentForm.courseId || !commentForm.comment || rating === 0) {
-        return;
-      }
+      const errors = {};
+      if (!commentForm.courseId) errors.courseId = "Sélectionner un cours est requis";
+      if (!commentForm.comment || commentForm.comment.trim().length < 10) errors.comment = "Le commentaire doit contenir au moins 10 caractères";
+      if (rating === 0) errors.rating = "Veuillez donner une note";
+      setCommentErrors(errors);
+      if (Object.keys(errors).length > 0) return;
 
       const commentData = {
         courseId: commentForm.courseId,
@@ -85,7 +90,7 @@ const ELearningForms = () => {
         {
           id: res.data.id || Math.random(),
           userName: "Moi",
-          userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+          userAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
           tutorName: cours.find(c => c.id === commentForm.courseId)?.name || "Cours",
           language: cours.find(c => c.id === commentForm.courseId)?.language || "",
           rating: commentData.rating,
@@ -104,6 +109,7 @@ const ELearningForms = () => {
         rating: 0
       });
       setRating(0);
+      setCommentErrors({});
 
       console.log("Commentaire ajouté avec succès");
     } catch (error) {
@@ -114,10 +120,15 @@ const ELearningForms = () => {
   // Fonction pour ajouter un cours
   const handleCourseSubmit = async () => {
     try {
-      if (!courseForm.name || !courseForm.description || !courseForm.level ||
-        !courseForm.language || !courseForm.duration) {
-        return;
-      }
+      const errors = {};
+      if (!courseForm.name || courseForm.name.trim().length < 3) errors.name = "Nom du cours trop court";
+      if (!courseForm.description || courseForm.description.trim().length < 15) errors.description = "Description trop courte";
+      if (!courseForm.level) errors.level = "Niveau requis";
+      if (!courseForm.language) errors.language = "Langue requise";
+      if (!courseForm.duration || Number(courseForm.duration) <= 0) errors.duration = "Durée invalide";
+      if (courseForm.prix && Number(courseForm.prix) < 0) errors.prix = "Prix invalide";
+      setCourseErrors(errors);
+      if (Object.keys(errors).length > 0) return;
 
       const courseData = {
         name: courseForm.name,
@@ -144,6 +155,7 @@ const ELearningForms = () => {
         duration: '',
         prix: ''
       });
+      setCourseErrors({});
 
       console.log("Cours ajouté avec succès");
     } catch (error) {
@@ -330,15 +342,21 @@ const handleFileChange = (e) => {
                               </option>
                             ))}
                           </select>
+                          {commentErrors.courseId && (
+                            <p className="mt-2 text-xs text-red-500">{commentErrors.courseId}</p>
+                          )}
                         </div>
 
                         <div>
                           <StarRating />
+                          {commentErrors.rating && (
+                            <p className="mt-2 text-xs text-red-500">{commentErrors.rating}</p>
+                          )}
                         </div>
 
                         <div>
                           <label className="block text-sm font-bold text-blueGray-700 mb-2">
-                            Description (optionnel)
+                            Description 
                           </label>
                           <input
                             type="text"
@@ -361,12 +379,16 @@ const handleFileChange = (e) => {
                             className="w-full px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-lightBlue-500 border border-blueGray-300 resize-none"
                             required
                           />
+                          {commentErrors.comment && (
+                            <p className="mt-2 text-xs text-red-500">{commentErrors.comment}</p>
+                          )}
                         </div>
 
                         <button
                           type="button"
                           onClick={handleAddNewComment}
-                          className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                          className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={Boolean(commentErrors.courseId || commentErrors.comment || commentErrors.rating) || !commentForm.courseId || !commentForm.comment || rating === 0}
                           style={{ backgroundColor: "#706CFF" }}
                         >
                           <Send className="w-5 h-5 inline mr-2" />
@@ -508,6 +530,9 @@ const handleFileChange = (e) => {
                             className="w-full px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-blueGray-300"
                             required
                           />
+                          {courseErrors.name && (
+                            <p className="mt-2 text-xs text-red-500">{courseErrors.name}</p>
+                          )}
                         </div>
 
                         <div className="w-full lg:w-6/12 px-4">
@@ -528,6 +553,9 @@ const handleFileChange = (e) => {
                             <option value="korean">Coréen</option>
                             <option value="japanese">Japonais</option>
                           </select>
+                          {courseErrors.language && (
+                            <p className="mt-2 text-xs text-red-500">{courseErrors.language}</p>
+                          )}
                         </div>
                       </div>
 
@@ -543,6 +571,9 @@ const handleFileChange = (e) => {
                           className="w-full px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-blueGray-300 resize-none"
                           required
                         />
+                        {courseErrors.description && (
+                          <p className="mt-2 text-xs text-red-500">{courseErrors.description}</p>
+                        )}
                       </div>
 
                       <div className="flex flex-wrap">
@@ -561,6 +592,9 @@ const handleFileChange = (e) => {
                             <option value="intermediate">Intermédiaire</option>
                             <option value="advanced">Avancé</option>
                           </select>
+                          {courseErrors.level && (
+                            <p className="mt-2 text-xs text-red-500">{courseErrors.level}</p>
+                          )}
                         </div>
 
                         <div className="w-full lg:w-4/12 px-4">
@@ -576,6 +610,9 @@ const handleFileChange = (e) => {
                             className="w-full px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-blueGray-300"
                             required
                           />
+                          {courseErrors.duration && (
+                            <p className="mt-2 text-xs text-red-500">{courseErrors.duration}</p>
+                          )}
                         </div>
 
                         
@@ -612,16 +649,13 @@ const handleFileChange = (e) => {
                         </div>
                       </div>
 
-                      <button
-                        type="button"
-                        onClick={handleCourseSubmit}
-                        className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-purple-600 active:bg-purple-700 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
-                      ></button>
+                      
 
                       <button
                         type="button"
                         onClick={handleCourseSubmit}
-                        className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-emerald-500 active:bg-emerald-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                        className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-emerald-500 active:bg-emerald-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={Boolean(courseErrors.name || courseErrors.description || courseErrors.level || courseErrors.language || courseErrors.duration) || !courseForm.name || !courseForm.description || !courseForm.level || !courseForm.language || !courseForm.duration}
                          style={{ backgroundColor: "#706CFF" }}
                       >
                         <Plus className="w-5 h-5 inline mr-2" />

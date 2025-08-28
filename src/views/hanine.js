@@ -15,44 +15,44 @@ export default function CommentsDisplay() {
       const mockComments = [
         {
           id: 1,
-          userName: "Michelle Burns",
+          userName: "Isabella Martínez",
           userAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
           rating: 5,
-          comment: "Elle est très patiente et ses méthodes d’enseignement sont vraiment efficaces. Je recommande vivement !",
-          
-          language: "Professeure d’anglais",
+          comment: "Isabella est très patiente et utilise des méthodes interactives. Grâce à elle, je parle avec plus de fluidité en espagnol.",
+           date: "2024-01-12",
+          language: "Espagnol",
           likes: 12
         },
         {
           id: 2,
-          userName: "Sang Kim",
+          userName: "Kenji Nakamura",
           userAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
           rating: 4,
-          comment: "Très bon professeur d'espagnol. Maria explique très bien la grammaire et la prononciation. Les cours sont dynamiques et intéressants.",
+          comment: "Kenji explique avec clarté et donne beaucoup d’exemples concrets. Ses cours sont dynamiques et motivants.",
           date: "2024-01-12",
-          tutorName: "Professeur d'anglais",
+          tutorName: "Japonais",
           
           likes: 8
         },
         {
           id: 3,
-          userName: "Emma Dubois",
+          userName: "Amina El Haddad",
           userAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
           rating: 5,
-          comment: "Sang Kim est un excellent professeur ! Ses cours m'ont vraiment aidé à améliorer mon niveau d'anglais. Je me sens plus confiante maintenant.",
+          comment: "Marco rend ses cours vivants avec des dialogues pratiques. J’ai beaucoup gagné en confiance à l’oral.",
           date: "2024-01-10",
-          tutorName: "Sang Kim",
-          language: "Anglais",
+          
+          language: "Italien",
           likes: 15
         },
         {
           id: 4,
-          userName: "Lucas Moreau",
+          userName: "Marco Rossi",
           userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
           rating: 4,
           comment: "Ronnie UK est très professionnel. Il adapte ses cours selon mes besoins et mon niveau. Les conversations sont très enrichissantes.",
           date: "2024-01-08",
-          tutorName: "Ronnie UK",
+        
           language: "Anglais",
           likes: 6
         },
@@ -63,7 +63,7 @@ export default function CommentsDisplay() {
           rating: 5,
           comment: "Ariella m'a beaucoup aidé pour préparer mon test IELTS. Ses techniques et conseils sont très utiles. Je recommande ses cours !",
           date: "2024-01-05",
-          tutorName: "Ariella IELTS",
+        
           language: "Anglais (IELTS)",
           likes: 20
         },
@@ -74,7 +74,7 @@ export default function CommentsDisplay() {
           rating: 4,
           comment: "Linda Sch apporte son expérience de professeure dans ses cours. C'est motivant d'apprendre avec quelqu'un d'aussi expérimenté.",
           date: "2024-01-03",
-          tutorName: "Linda Sch",
+         
           language: "Anglais",
           likes: 9
         }
