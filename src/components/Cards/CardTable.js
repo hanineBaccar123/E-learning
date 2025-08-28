@@ -72,8 +72,8 @@ const handlechange= (e)=>{
    const handleAddNewUserWithImage = async (newUser)=>{
 
     try{
-      formData.append("firstName",newUser.firstname)
-      formData.append("lastName",newUser.lastname)
+      formData.append("firstname",newUser.firstname)
+      formData.append("lastname",newUser.lastname)
       formData.append("email",newUser.email)
       formData.append("password",newUser.password)
       formData.append("role",newUser.role)

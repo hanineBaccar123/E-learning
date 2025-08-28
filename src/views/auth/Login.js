@@ -17,23 +17,7 @@ export default function Login() {
 
   const handleLogin = async (uese)=>{
     try{
-      const res = await login(user);
-      localStorage.setItem("role",res.data.user.role)
-      localStorage.setItem("user",res.data.user)
-      localStorage.setItem("token",res.data.token)
-      console.log(res);
-      if(res.data.user.role ==="student"){
-        history.push("/mode");
-      }
-         if(res.data.user.role ==="teacher"){
-        history.push("/welcometeacher");
-        //winodws.location.replace('')
-      }
-
-       if(res.data.user.role ==="admin"){
-        history.push("/admin/dashboard");
-        //winodws.location.replace('')
-      }
+       showNotification("error", "Login failed",  "Something went wrong")
 
 
     } catch (error) {
@@ -65,7 +49,7 @@ export default function Login() {
 
   return (
     <>
-    <NotificationContainer />
+    
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-4/12 px-4">
@@ -76,6 +60,7 @@ export default function Login() {
                     Sign in with
                   </h6>
                 </div>
+                <NotificationContainer />
                 <div className="btn-wrapper text-center">
                   <button
                     className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
