@@ -30,6 +30,12 @@ export async function register(userData){
     return await axios.post(`${apiUrl}/users/register`,userData);
 }
 
+export async function updateProfile(id,userData){
+    return await axios.post(`${apiUrl}/users/modifierProfil/${id}`,userData);
+}
+
+
+
 
 
 

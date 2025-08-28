@@ -12,11 +12,23 @@ export default function Register() {
 
   const [newUser,setNewUser] = useState({
     firstName:"",
+    lastname:"",
     email:"",
     password:"",
+  
    
 
   })
+
+
+
+  const [image , setImage]= useState("")
+  
+    const handleFile = (e)=>{
+  
+    setImage(e.target.files[0])
+    console.log(image)
+  };
   const handelChange = (e)=> {
     const{name , value} = e.target;
     setNewUser({...newUser,[name]:value})
@@ -116,6 +128,8 @@ export default function Register() {
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Name"
                     />
+
+                   
                   </div>
 
                   <div className="relative w-full mb-3">

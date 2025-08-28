@@ -133,11 +133,11 @@ export default function Navbar(props) {
               <li className="flex items-center">
                 
 
-                <Link to="/admin/Settings">
+                <Link to="/modifierprofil">
                 <button  className="bg-blueGray-500 text-white active:bg-blueGray-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
                  
                  >
-  Modifier Profil 
+   Profil 
 </button>
 </Link>
                 

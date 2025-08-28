@@ -39,12 +39,7 @@ const CourseCard = ({ title, description, level, duration, language, icon }) => 
           <span className="text-sm text-blueGray-500 flex items-center">
             <FaBook className="mr-1" /> {duration}
           </span>
-          <Link 
-            to="/cours-details" 
-            className="text-lightBlue-500 hover:text-lightBlue-600 font-bold text-sm ease-linear transition-all duration-150"
-          >
-            Voir plus →
-          </Link>
+       
         </div>
       </div>
     </div>

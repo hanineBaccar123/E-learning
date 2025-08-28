@@ -27,7 +27,7 @@ const PagesDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Let's Go 
+        
       </a>
       <div
         ref={popoverDropdownRef}

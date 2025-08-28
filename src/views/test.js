@@ -1,4 +1,4 @@
-import { Star, Send, Plus, Heart, MessageCircle, Calendar, User } from 'lucide-react';
+import { Star, Send, Plus, Heart, MessageCircle, Calendar, User,Upload } from 'lucide-react';
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import React, { useState, useEffect, useCallback } from 'react';
@@ -204,7 +204,10 @@ const ELearningForms = () => {
         : comment
     ));
   };
-
+const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setCourseForm({ ...courseForm, file: file });
+  };
   return (
     <>
       {/* Hero Section */}
@@ -239,7 +242,9 @@ const ELearningForms = () => {
                   className={`text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150 ${activeForm === 'teacher'
                       ? 'bg-emerald-500 active:bg-emerald-600'
                       : 'bg-blueGray-700 active:bg-blueGray-600'
-                    }`}
+                    
+                      
+                    }`}    style={activeForm === 'teacher' ? { backgroundColor: "#706CFF" } : {}}
                 >
                   <i className="fas fa-chalkboard-teacher mr-2"></i>
                   Interface Enseignant
@@ -573,26 +578,51 @@ const ELearningForms = () => {
                           />
                         </div>
 
-                        <div className="w-full lg:w-4/12 px-4">
-                          <label className="block text-sm font-bold text-blueGray-700 mb-2">
-                            Prix ()
-                          </label>
+                        
+                      </div>
+
+                      {/* Section upload de fichier */}
+                      <div>
+                        <label className="block text-sm font-bold text-blueGray-700 mb-2">
+                          Fichier du cours (optionnel)
+                        </label>
+                        <div className="relative">
                           <input
-                            type="number"
-                            value={courseForm.prix}
-                            onChange={(e) => setCourseForm({ ...courseForm, prix: e.target.value })}
-                            placeholder="Ex: 99"
-                            min="0"
-                            step="0.01"
-                            className="w-full mr-1 mb-1px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-blueGray-300"
+                            type="file"
+                            id="course-file"
+                            onChange={handleFileChange}
+                            accept=".pdf,.doc,.docx,.ppt,.pptx,.mp4,.mp3,.zip"
+                            className="w-full px-3 py-4 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring-2 focus:ring-purple-500 border border-blueGray-300 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
                           />
+                          <div className="flex items-center mt-2 text-xs text-blueGray-500">
+                            <Upload size={14} className="mr-1" />
+                           
+                          </div>
+                          {courseForm.file && (
+                            <div className="mt-2 p-2 bg-purple-50 rounded border border-purple-200">
+                              <div className="flex items-center text-sm text-purple-700">
+                                <i className="fas fa-file mr-2"></i>
+                                Fichier sélectionné: {courseForm.file.name}
+                                <span className="ml-2 text-xs text-blueGray-500">
+                                  ({Math.round(courseForm.file.size / 1024)} KB)
+                                </span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
 
                       <button
                         type="button"
                         onClick={handleCourseSubmit}
+                        className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-purple-600 active:bg-purple-700 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                      ></button>
+
+                      <button
+                        type="button"
+                        onClick={handleCourseSubmit}
                         className="w-full text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-emerald-500 active:bg-emerald-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                         style={{ backgroundColor: "#706CFF" }}
                       >
                         <Plus className="w-5 h-5 inline mr-2" />
                         Créer le Cours

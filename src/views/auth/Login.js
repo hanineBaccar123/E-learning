@@ -23,7 +23,7 @@ export default function Login() {
       localStorage.setItem("token",res.data.token)
       console.log(res);
       if(res.data.user.role ==="student"){
-        history.push("/landing");
+        history.push("/mode");
       }
          if(res.data.user.role ==="teacher"){
         history.push("/welcometeacher");

@@ -27,7 +27,7 @@ const IndexDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        lel's go 
+        
       </a>
       <div
         ref={popoverDropdownRef}

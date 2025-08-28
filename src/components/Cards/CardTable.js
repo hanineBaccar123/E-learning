@@ -156,7 +156,7 @@ catch(error) {
           
            <input
                     type="text"
-                    name='firstname'
+                    name='firstname' 
                     placeholder="firstname"
                     value={newUser.firstname}
                     className="border-0 px-3 py-3 mr-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"

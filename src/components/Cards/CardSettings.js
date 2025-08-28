@@ -1,10 +1,44 @@
 import React from "react";
+import { useState,useCallback,useEffect } from "react";
+import { getAllUsers,updateProfile } from "Service/ApiUser";
+
 
 
 // components
 
 
 export default function CardSettings() {
+
+
+  const [users, setUsers] = useState([]);
+  const[isModalOpen, setIsModalOpen] = useState(false);
+  
+  
+     let formData= new FormData();
+    
+      const getUsers = useCallback(async () => {
+        await getAllUsers().then((res => {
+          console.log(res.data.usersList);
+          setUsers(res.data.usersList);
+        }))
+    
+      }, []);
+      useEffect(() => { getUsers() }, [getUsers]);
+  
+  
+    const handelUpdateProfile = async (newUser)=>{
+      try{
+        await updateProfile(newUser._id,newUser)
+        getUsers()
+        setIsModalOpen(false)
+        console.log("profile updated")
+  
+  
+      }
+  catch(error) {
+    console.log(error)
+  }
+    }
 
   return (
     <>
@@ -119,8 +153,12 @@ export default function CardSettings() {
                   >
                   
                   </label>
-                  <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                Modifier 
+                  <button className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+                   >
+
+                  
+                Modifier
+
               </button>
 
                  
