@@ -15,12 +15,29 @@ export default function Login() {
     setUser({...user,[name]:value})
   }
 
-  const handleLogin = async (uese)=>{
+  const handleLogin = async (user)=>{
     try{
-       showNotification("error", "Login failed",  "Something went wrong")
+      const res = await login(user);
+      localStorage.setItem("role",res.data.user.role);
+      localStorage.setItem("user",res.data.user);
+      localStorage.setItem("token",res.data.token);
+       console.log(res);
+       if(res.data.user.role === "student"){
+        history.push("/mode");
+       }
 
+       if(res.data.user.role === "teacher"){
+        history.push("/welcometeacher");
+       }
 
-    } catch (error) {
+       if(res.data.user.role === "admin"){
+        history.push("/admin/dashbord");
+       }
+
+       showNotification("success", "Login successful", "Welcome back!");
+
+    }
+    catch (error) {
       console.log(error);
       //notif
       showNotification("error", "Login failed", error.response?.data?.message || "Something went wrong")

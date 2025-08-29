@@ -16,7 +16,7 @@ export default function mode() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://wallpapers.com/images/hd/teacher-background-psj5qymjkxcj90t3.jpg')",
+                "url('https://cdn.elearningindustry.com/wp-content/uploads/2018/12/9-Tips-To-Host-A-Webinar-And-Boost-Your-LMS-Marketing-Efforts.jpg')",
             }}
           >
             <span

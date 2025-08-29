@@ -1,8 +1,12 @@
 import React from "react";
 
+
+
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import { Link } from "react-router-dom";
+
+
 
 export default function modifierProfile() {
   return (
@@ -51,7 +55,7 @@ export default function modifierProfile() {
                     <div className="relative">
                       <img
                         alt="..."
-                        src={require("assets/img/team-2-800x800.jpg").default}
+                        src={require("assets/img/moi.jpg").default}
                         className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                       />
                     </div>

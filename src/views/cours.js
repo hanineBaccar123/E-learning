@@ -27,7 +27,7 @@ Inscrivez-vous pour parcourir les cours gratuitement. Terminez n’importe quel 
               </p>
               <div className="mt-12">
                 
-                 <Link to="/carts">
+                 <Link to="/auth/login">
                 <a
                   
                   target="_blank"
@@ -37,7 +37,7 @@ Inscrivez-vous pour parcourir les cours gratuitement. Terminez n’importe quel 
                   Commencer
                 </a>
                 </Link>
-                 <Link to="/carts">
+                
                 <a
                   
                   className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
@@ -46,7 +46,7 @@ Inscrivez-vous pour parcourir les cours gratuitement. Terminez n’importe quel 
                   En savoir plus
 
                 </a>
-                </Link>
+                
               </div>
             </div>
           </div>

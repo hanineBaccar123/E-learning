@@ -22,9 +22,15 @@ export default function Auth() {
             className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
             style={{
               backgroundImage:
-                 "url('')",
+                 "url('https://wallpaperaccess.com/full/1260522.jpg')",
+
+
             }}
+
+
+            
           ></div>
+           
           <Switch>
           <Route path="/auth/login" exact component={Login} />
           <Route path="/auth/forget" exact component={forget} />

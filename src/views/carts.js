@@ -6,7 +6,7 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import { getAllCours } from 'Service/ApiCours';
 
-const CourseCard = ({ title, description, level, duration, language, icon }) => {
+const CourseCard = ({ title, description, level, duration, language, icon}) => {
   const levelColors = {
     'Débutant': 'bg-green-100 text-green-800',
     'Intermédiaire': 'bg-blue-100 text-blue-800',
@@ -22,6 +22,8 @@ const CourseCard = ({ title, description, level, duration, language, icon }) => 
               <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-lightBlue-500">
                 {icon || <FaBook className="text-xl" />}
               </div>
+             
+              
               <span className="ml-2 text-sm font-semibold text-blueGray-500 uppercase">
                 {language}
               </span>
